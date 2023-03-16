@@ -1,4 +1,6 @@
 # Relational-DB
+Cours de Base de données pour l'ESGFinance
 SQL Scripts
 
-Cours de Base de données pour l'ESGFinance
+Rendus : rendu.fornier@gmail.com
+
