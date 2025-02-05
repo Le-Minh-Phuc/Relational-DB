@@ -22,7 +22,7 @@ CREATE TABLE Suppliers (
  pno Numeric(6) NOT NULL,
  qte INT(5) NOT NULL ,
 
- constraint FK1 foreign key (fno) references Suppliers(fno),
+ constraint FK1 foreign key (fno) references Suppliers(sno),
  constraint FK2 foreign key (pno) references Products(pno)
 
  ) ;
