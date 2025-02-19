@@ -1,0 +1,248 @@
+-- SGBD : MySql	--
+-- Destruction des tables
+
+
+create database cinema; 
+use cinema;
+
+DROP TABLE IF EXISTS Seance ;
+DROP TABLE IF EXISTS Salle ; 
+DROP TABLE IF EXISTS Cinema ; 
+DROP TABLE IF EXISTS Role ; 
+DROP TABLE IF EXISTS Movie ; 
+DROP TABLE IF EXISTS Artist ;
+
+-- Structure de la table 'Artist'
+
+
+CREATE TABLE Artist (
+   Name_Artist varchar(20) NOT NULL,
+   Surname_Artist varchar(15),
+   Date_of_Birth decimal(4,0),
+   PRIMARY KEY (Name_Artist)
+)Engine='InnoDB';
+
+
+-- Contenu de la table 'Artist'
+
+
+INSERT INTO Artist VALUES( 'Allen', 'Woody', '1938'); 
+INSERT INTO Artist VALUES( 'Lynch', 'David', '1946');
+INSERT INTO Artist VALUES( 'Kusturica', 'Emir', '1959'); 
+INSERT INTO Artist VALUES( 'Lang', 'Fritz', '1899');
+INSERT INTO Artist VALUES( 'Eastwood', 'Clint', '1932'); 
+INSERT INTO Artist VALUES( 'Hitchcock', 'Alfred', '1898'); 
+INSERT INTO Artist VALUES( 'Kubrick', 'Stanley', '1935'); 
+INSERT INTO Artist VALUES( 'Curtis', 'Michael', '1902'); 
+INSERT INTO Artist VALUES( 'Stewart', 'James', '1911');
+INSERT INTO Artist VALUES( 'Novak', 'Kim', NULL); 
+INSERT INTO Artist VALUES( 'Hunt', 'Greg', '1950');
+INSERT INTO Artist VALUES( 'Tarantino', 'Quentin', '1948'); 
+INSERT INTO Artist VALUES( 'Willis', 'Bruce', '1952'); 
+INSERT INTO Artist VALUES( 'Spielberg', 'Steven', '1943'); 
+INSERT INTO Artist VALUES( 'Hudson', 'Hugh', NULL); 
+INSERT INTO Artist VALUES( 'Gillian', 'Terry', '1944'); 
+INSERT INTO Artist VALUES( 'Truffaut', 'Francois', '1938'); 
+INSERT INTO Artist VALUES( 'Lambert', 'Christophe', '1953'); 
+INSERT INTO Artist VALUES( 'Keitel', 'Harvey', '1940'); 
+INSERT INTO Artist VALUES( 'Woo', 'John', '1951');
+INSERT INTO Artist VALUES( 'Travolta', 'John', '1953'); 
+INSERT INTO Artist VALUES( 'Cage', 'Nicolas', '1954'); 
+INSERT INTO Artist VALUES( 'DiCaprio', 'Leonardo', '1973'); 
+INSERT INTO Artist VALUES( 'Cameron', 'James', '1943'); 
+INSERT INTO Artist VALUES( 'Cruise', 'Tom', '1960'); 
+INSERT INTO Artist VALUES( 'De Palma', 'Brian', '1953'); 
+INSERT INTO Artist VALUES( 'Depp', 'Johnny', '1967');
+INSERT INTO Artist VALUES( 'Ricci', 'Christina', '1974'); 
+INSERT INTO Artist VALUES( 'Burton', 'Tim', '1958');
+
+
+
+-- Structure de la table 'Cinema'
+
+
+CREATE TABLE Cinema (
+   Name_Cinema varchar(10) NOT NULL,
+   District decimal(2,0),
+   Adress varchar(30),
+   PRIMARY KEY (Name_Cinema)
+)Engine='InnoDB';
+
+
+-- Contenu de la table 'Cinema'
+
+
+INSERT INTO Cinema VALUES( 'Rex', '2', '22 Boulevard Poissoniere'); 
+INSERT INTO Cinema VALUES( 'Kino', '15', '3 Boulevard Raspail'); 
+INSERT INTO Cinema VALUES( 'Nations', '12', '3 Reuilly Street'); 
+INSERT INTO Cinema VALUES( 'Halles', '1', 'Halles Forum');
+
+-- Structure de la table 'Film'
+ 
+
+CREATE TABLE Movie (
+   ID_Movie decimal(10,0) DEFAULT '0' NOT NULL,
+   Title_Movie varchar(30),
+   Year_of_release decimal(4,0),
+   Name_Director varchar(20),
+   PRIMARY KEY (ID_Movie)
+)Engine='InnoDB';
+
+
+-- Contenu de la table 'Film'
+
+
+
+INSERT INTO Movie VALUES( '10', 'Annie Hall', '1977', 'Allen'); 
+INSERT INTO Movie VALUES( '57', 'Brazil', '1984', 'Gillian');
+INSERT INTO Movie VALUES( '5', 'Underground', '1995', 'Kusturica'); 
+INSERT INTO Movie VALUES( '38', 'Metropolis', '1926', 'Lang');
+INSERT INTO Movie VALUES( '45', 'Impitoyable', '1992', 'Eastwood'); 
+INSERT INTO Movie VALUES( '65', 'Vertigo', '1958', 'Hitchcock'); 
+INSERT INTO Movie VALUES( '7', 'Shining', '1980', 'Kubrick');
+INSERT INTO Movie VALUES( '6', 'Psychose', '1960', 'Hitchcock'); 
+INSERT INTO Movie VALUES( '3', 'Twin Peaks', '1990', 'Lynch');
+INSERT INTO Movie VALUES( '90', 'Casablanca', '1942', 'Curtis'); 
+INSERT INTO Movie VALUES( '85', 'Greystocke', '1984', 'Hudson'); 
+INSERT INTO Movie VALUES( '89', 'Le dernier metro', '1980', 'Truffaut'); 
+INSERT INTO Movie VALUES( '1', 'Reservoir Dogs', '1992', 'Tarantino'); 
+INSERT INTO Movie VALUES( '43', 'Manhattan', '1979', 'Allen');
+INSERT INTO Movie VALUES( '11', 'Jurassic Park', '1992', 'Spielberg');
+INSERT INTO Movie VALUES( '32', 'Rencontres du 3eme type', '1978', 'Spielberg'); 
+INSERT INTO Movie VALUES( '33', 'Piege de cristal', '1990', 'Hunt');
+INSERT INTO Movie VALUES( '34', 'Une journee en enfer', '1994', 'Hunt'); 
+INSERT INTO Movie VALUES( '35', '48 minutes pour vivre', '1992', 'Hunt'); 
+INSERT INTO Movie VALUES( '73', 'Pulp Fiction', '1995', 'Tarantino'); 
+INSERT INTO Movie VALUES( '101', 'Broken Arrow', '1996', 'Woo'); 
+INSERT INTO Movie VALUES( '102', 'Volte-Face', '1997', 'Woo');
+INSERT INTO Movie VALUES( '104', 'Titanic', '1998', 'Cameron');
+INSERT INTO Movie VALUES( '135', 'Mission Impossible 2', '2000', 'Woo'); 
+INSERT INTO Movie VALUES( '136', 'Mission Impossible', '1997', 'De Palma'); 
+INSERT INTO Movie VALUES( '142', 'Edward scissorhands', '1990', 'Burton'); 
+INSERT INTO Movie VALUES( '141', 'Sleepy Hollow', '1999', 'Burton');
+ 
+-- Structure de la table 'Role'
+
+
+
+CREATE TABLE Role (
+   Name_Role varchar(20) NOT NULL,
+   ID_Movie decimal(10,0) DEFAULT '0' NOT NULL,
+   Name_Actor varchar(20) NOT NULL,
+   PRIMARY KEY (ID_Movie, Name_Actor)
+)Engine='InnoDB';
+
+
+-- Contenu de la table 'Role'
+
+
+INSERT INTO Role VALUES( 'Bernard', '32', 'Truffaut'); 
+INSERT INTO Role VALUES( 'Davis', '43', 'Allen');
+INSERT INTO Role VALUES( 'Tarzan', '85', 'Lambert'); 
+INSERT INTO Role VALUES( 'Ferguson', '65', 'Stewart'); 
+INSERT INTO Role VALUES( 'Elster', '65', 'Novak'); 
+INSERT INTO Role VALUES( 'Jonas', '10', 'Allen'); 
+INSERT INTO Role VALUES( 'McLane', '33', 'Willis'); 
+INSERT INTO Role VALUES( 'McLane', '34', 'Willis'); 
+INSERT INTO Role VALUES( 'McLane', '35', 'Willis');
+INSERT INTO Role VALUES( 'Mr Brown', '1', 'Tarantino'); 
+INSERT INTO Role VALUES( 'Munny', '45', 'Eastwood'); 
+INSERT INTO Role VALUES( 'Mr White', '1', 'Keitel'); 
+INSERT INTO Role VALUES( 'Wolf', '73', 'Keitel');
+INSERT INTO Role VALUES( 'Coolidge', '73', 'Willis'); 
+INSERT INTO Role VALUES( 'Vega', '73', 'Travolta');
+INSERT INTO Role VALUES( 'Deakins', '101', 'Travolta'); 
+INSERT INTO Role VALUES( 'Archer', '102', 'Travolta'); 
+INSERT INTO Role VALUES( 'Troy', '102', 'Cage'); 
+INSERT INTO Role VALUES( 'Dowson', '104', 'DiCaprio'); 
+INSERT INTO Role VALUES( 'Howard', '135', 'Cruise'); 
+INSERT INTO Role VALUES( 'Howard', '136', 'Cruise'); 
+INSERT INTO Role VALUES( 'Crane', '141', 'Depp'); 
+INSERT INTO Role VALUES( 'Edward', '142', 'Depp'); 
+INSERT INTO Role VALUES( 'Van Tassel', '141', 'Ricci');
+
+-- Structure de la table 'Salle'
+ 
+CREATE TABLE Broadcast_Room (
+   Name_Cinema varchar(10) NOT NULL,
+   No_Room decimal(2,0) DEFAULT '0' NOT NULL,
+   Air_Conditioned char(1),
+   Capacity decimal(4,0),
+   PRIMARY KEY (Name_Cinema, No_Room)
+)Engine='InnoDB';
+
+
+-- Contenu de la table 'Salle'
+
+
+
+INSERT INTO Broadcast_Room VALUES( 'Rex', '1', 'O', '150');
+INSERT INTO Broadcast_Room VALUES( 'Rex', '2', 'O', '100');
+INSERT INTO Broadcast_Room VALUES( 'Rex', '3', 'N', '80');
+INSERT INTO Broadcast_Room VALUES( 'Rex', '4', 'N', '80');
+INSERT INTO Broadcast_Room VALUES( 'Kino', '1', 'N', '280');
+INSERT INTO Broadcast_Room VALUES( 'Kino', '2', 'O', '120');
+INSERT INTO Broadcast_Room VALUES( 'Kino', '3', 'O', '130'); 
+INSERT INTO Broadcast_Room VALUES( 'Nations', '1', 'O', '130'); 
+INSERT INTO Broadcast_Room VALUES( 'Nations', '2', 'N', '90');
+INSERT INTO Broadcast_Room VALUES( 'Nations', '3', 'N', '60');
+INSERT INTO Broadcast_Room VALUES( 'Halles', '1', 'O', '75');
+INSERT INTO Broadcast_Room VALUES( 'Halles', '2', 'N', '60');
+INSERT INTO Broadcast_Room VALUES( 'Halles', '3', 'N', '60');
+
+
+-- Structure de la table 'Seance'
+
+
+
+CREATE TABLE Session_Movie (
+   Name_Cinema varchar(10) NOT NULL,
+   No_Room decimal(2,0) DEFAULT '0' NOT NULL,
+   No_Session decimal(2,0) DEFAULT '0' NOT NULL,
+   Start_Time decimal(4,2),
+   End_Time decimal(4,2),
+   ID_Movie decimal(10,0) DEFAULT '0' NOT NULL,
+   PRIMARY KEY (Name_Cinema, No_Room, No_Session)
+)Engine='InnoDB';
+
+
+-- Contenu de la table 'Seance'
+ 
+INSERT INTO Session_Movie VALUES( 'Rex', '1', '3', '9.99', '9.99', '1');
+INSERT INTO Session_Movie VALUES( 'Rex', '1', '4', '9,99', '9.99', '6');
+INSERT INTO Session_Movie VALUES( 'Rex', '2', '1', '9,99', '9,99', '34');
+INSERT INTO Session_Movie VALUES( 'Rex', '2', '2', '9,99', '9,99', '34');
+INSERT INTO Session_Movie VALUES( 'Rex', '2', '3', '9,99', '9,99', '7');
+INSERT INTO Session_Movie VALUES( 'Rex', '2', '4', '9,99', '9,99', '65');
+INSERT INTO Session_Movie VALUES( 'Rex', '3', '1', '9,99', '9,99', '11');
+INSERT INTO Session_Movie VALUES( 'Rex', '3', '2', '9,99', '9,99', '11');
+INSERT INTO Session_Movie VALUES( 'Rex', '3', '3', '9,99', '9,99', '11');
+INSERT INTO Session_Movie VALUES( 'Rex', '4', '1', '9,99', '9,99', '38');
+INSERT INTO Session_Movie VALUES( 'Rex', '4', '2', '9,99', '9,99', '38');
+INSERT INTO Session_Movie VALUES( 'Rex', '4', '3', '9,99', '9,99', '38');
+INSERT INTO Session_Movie VALUES( 'Kino', '1', '1', '9,99', '9,99', '34');
+INSERT INTO Session_Movie VALUES( 'Kino', '1', '2', '9,99', '9,99', '73');
+INSERT INTO Session_Movie VALUES( 'Kino', '1', '3', '9,99', '9,99', '34');
+INSERT INTO Session_Movie VALUES( 'Kino', '2', '1', '9,99', '9,99', '43');
+INSERT INTO Session_Movie VALUES( 'Kino', '2', '2', '9,99', '9,99', '7');
+INSERT INTO Session_Movie VALUES( 'Kino', '2', '3', '9,99', '9,99', '43');
+INSERT INTO Session_Movie VALUES( 'Kino', '3', '1', '9,99', '9,99', '101');
+INSERT INTO Session_Movie VALUES( 'Kino', '3', '2', '9,99', '9,99', '102');
+INSERT INTO Session_Movie VALUES( 'Kino', '3', '3', '9,99', '9,99', '104');
+INSERT INTO Session_Movie VALUES( 'Kino', '3', '4', '9,99', '9,99', '104');
+INSERT INTO Session_Movie VALUES( 'Nations', '1', '1', '9,99', '9,99', '65');
+INSERT INTO Session_Movie VALUES( 'Nations', '3', '1', '9,99', '9,99', '7');
+INSERT INTO Session_Movie VALUES( 'Nations', '3', '2', '9,99', '9,99', '7');
+INSERT INTO Session_Movie VALUES( 'Nations', '3', '3', '9,99', '9,99', '7');
+INSERT INTO Session_Movie VALUES( 'Halles', '1', '1', '9,99', '9,99', '32');
+INSERT INTO Session_Movie VALUES( 'Halles', '1', '2', '9,99', '9,99', '32');
+INSERT INTO Session_Movie VALUES( 'Halles', '1', '3', '9,99', '9,99', '32');
+INSERT INTO Session_Movie VALUES( 'Halles', '2', '1', '9,99', '9,99', '5');
+INSERT INTO Session_Movie VALUES( 'Halles', '2', '2', '9,99', '9,99', '5');
+INSERT INTO Session_Movie VALUES( 'Halles', '2', '3', '9,99', '9,99', '45');
+INSERT INTO Session_Movie VALUES( 'Halles', '3', '1', '9,99', '9,99', '3');
+INSERT INTO Session_Movie VALUES( 'Halles', '3', '2', '9,99', '9,99', '3');
+INSERT INTO Session_Movie VALUES( 'Halles', '3', '3', '9,99', '9,99', '3');
+ 
+ 
+ 
