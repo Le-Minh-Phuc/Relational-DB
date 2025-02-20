@@ -1,5 +1,5 @@
 -- SGBD : MySql	--
--- Destruction des tables
+-- Destruction of tables
 
 
 create database cinema; 
