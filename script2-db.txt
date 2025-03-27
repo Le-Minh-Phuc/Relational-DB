@@ -72,7 +72,10 @@ CREATE TABLE Cinema (
 -- Contenu de la table 'Cinema'
 
 
-INSERT INTO Cinema VALUES( 'Rex', '2', '22 Bd Poissoniere'); INSERT INTO Cinema VALUES( 'Kino', '15', '3 Bd Raspail'); INSERT INTO Cinema VALUES( 'Nations', '12', '3 Rue de Reuilly'); INSERT INTO Cinema VALUES( 'Halles', '1', 'Forum des Halles');
+INSERT INTO Cinema VALUES( 'Rex', '2', '22 Bd Poissoniere'); 
+INSERT INTO Cinema VALUES( 'Kino', '15', '3 Bd Raspail'); 
+INSERT INTO Cinema VALUES( 'Nations', '12', '3 Rue de Reuilly'); 
+INSERT INTO Cinema VALUES( 'Halles', '1', 'Forum des Halles');
 
 -- Structure de la table 'Film'
  
@@ -205,8 +208,8 @@ CREATE TABLE Seance (
 
 -- Contenu de la table 'Seance'
  
-INSERT INTO Seance VALUES( 'Rex', '1', '3', '9.99', '9.99', '1');
-INSERT INTO Seance VALUES( 'Rex', '1', '4', '9,99', '9.99', '6');
+INSERT INTO Seance VALUES( 'Rex', '1', '3', '9,99', '9,99', '1');
+INSERT INTO Seance VALUES( 'Rex', '1', '4', '9,99', '9,99', '6');
 INSERT INTO Seance VALUES( 'Rex', '2', '1', '9,99', '9,99', '34');
 INSERT INTO Seance VALUES( 'Rex', '2', '2', '9,99', '9,99', '34');
 INSERT INTO Seance VALUES( 'Rex', '2', '3', '9,99', '9,99', '7');
